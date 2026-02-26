@@ -7,7 +7,7 @@ variables:
 
 targets:
   dev:
-    mode: develolpment
+    mode: development
     variables:
       notebooks_base_path: /workspace/users/sravandevops92@gmail.com/databricks-cicd/files
     workspace:

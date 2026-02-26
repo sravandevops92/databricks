@@ -14,11 +14,11 @@ pipeline {
       stage ('package') {
         steps {
           script {
-            sh """
+            sh '''
             DATE=$(date +%Y-%m-%d_%H-%M-%S)
             zip -r application_${DATE}.zip .
             ls -la
-            """
+            '''
           }
         }
       }

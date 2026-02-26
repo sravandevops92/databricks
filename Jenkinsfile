@@ -26,7 +26,7 @@ pipeline {
         steps {
           script {
             def tokenId = ''
-            det host_url = ''
+            def host_url = ''
             def env = ''
 
             if (env.BRANCH_NAME == 'develop') {

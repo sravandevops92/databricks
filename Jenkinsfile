@@ -51,13 +51,14 @@ pipeline {
 
             withCredentials([string(credentialsId: tokenId, variable: 'TOKEN')]) {
                 println("######### GENERING DATABRICKS CONFIG FILE #########")
-                sh """
+                env.DATABRICKS_TOKEN = TOKEN
+                /*sh """
                  touch ~/.databrickscfg
                  echo "[DEFAULT]" >> ~/.databrickscfg
                  echo "token = ${TOKEN} >> ~/.databrickscfg
                  echo "host = ${host_url} >> ~/.databrickscfg
                  cat  ~/.databrickscfg
-                """
+                """ */
                 println("############ DATABRICKS BUNDLE VALIDATE #########")
                 sh "databricks bundle validate -t ${environment_name}"
                 println("############ DATABRICKS BUNDLE DEPLOY #########")

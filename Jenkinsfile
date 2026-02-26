@@ -28,22 +28,22 @@ pipeline {
           script {
             def tokenId = ''
             def host_url = ''
-            def env = ''
+            def environment_name = ''
 
             if (env.BRANCH_NAME == 'develop') {
                 tokenId = 'dev-databricks-token'
                 host_url = 'https://dbc-cadbc0fd-96cb.cloud.databricks.com'
-                env = 'dev'
+                environment_name = 'dev'
             } 
             else if (env.BRANCH_NAME == 'qa') {
                 tokenId = 'dev-databricks-token'
                 host_url = 'https://dbc-cadbc0fd-96cb.cloud.databricks.com'
-                env = 'dev'
+                environment_name = 'dev'
             } 
             else if (env.BRANCH_NAME == 'main') {
                 tokenId = 'dev-databricks-token'
                 host_url = 'https://dbc-cadbc0fd-96cb.cloud.databricks.com'
-                env = 'dev'
+                environment_name = 'dev'
             } 
             else {
                 error "No token configured for branch ${env.BRANCH_NAME}"
@@ -59,9 +59,9 @@ pipeline {
                  cat  ~/.databrickscfg
                 """
                 println("############ DATABRICKS BUNDLE VALIDATE #########")
-                sh "databricks bundle validate -t ${env}"
+                sh "databricks bundle validate -t ${environment_name}"
                 println("############ DATABRICKS BUNDLE DEPLOY #########")
-                sh "databricks bundle deploy -t ${env} --force-lock"
+                sh "databricks bundle deploy -t ${environment_name} --force-lock"
             }
           }
         }

@@ -19,6 +19,7 @@ pipeline {
             DATE=$(date +%Y-%m-%d_%H-%M-%S)
             zip -r application_${DATE}.zip .
             ls -la
+            rm -f *.zip
             '''
           }
         }

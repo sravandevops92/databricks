@@ -1,0 +1,39 @@
+bundle:
+  name: databricks-bundle
+
+variables:
+  notebooks_base_path:
+    description: notebook base path
+
+tergets:
+  dev:
+    mode: develolpment
+    variables:
+      notebooks_base_path: /workspace/users/sravandevops92@gmail.com/databricks-cicd/files
+    workspace:
+      root_path: /users/sravandevops92@gmail.com/databricks-cicd/
+      host: https://dbc-cadbc0fd-96cb.cloud.databricks.com
+    run_as: 
+      user_name: sravandevops92@gmail.com
+      
+
+  qa:
+    mode: production
+    variables:
+      notebooks_base_path: /workspace/users/sravandevops92@gmail.com/databricks-cicd/files
+    workspace:
+      root_path: /users/sravandevops92@gmail.com/databricks-cicd/
+      host: https://dbc-cadbc0fd-96cb.cloud.databricks.com
+    run_as: 
+      user_name: sravandevops92@gmail.com
+
+
+  prod:
+    mode: production
+    variables:
+      notebooks_base_path: /workspace/users/sravandevops92@gmail.com/databricks-cicd/files
+    workspace:
+      root_path: /users/sravandevops92@gmail.com/databricks-cicd/
+      host: https://dbc-cadbc0fd-96cb.cloud.databricks.com
+    run_as: 
+      user_name: sravandevops92@gmail.com

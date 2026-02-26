@@ -4,6 +4,7 @@ pipeline {
       stage ('sonar analysis') {
         steps {
           script {
+            println("${env.BRANCH_NAME"})
             def SONAR_SCANNER = tool name: 'sonar-scanner'
             withSonarQubeEnv(credentialsId: 'sonartoken') {
               sh "${SONAR_SCANNER}/bin/sonar-scanner -Dsonar.projectKey=databricks -Dsonar.language=python"

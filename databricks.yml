@@ -5,7 +5,7 @@ variables:
   notebooks_base_path:
     description: notebook base path
 
-tergets:
+targets:
   dev:
     mode: develolpment
     variables:

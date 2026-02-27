@@ -32,17 +32,17 @@ pipeline {
             def environment_name = ''
 
             if (env.BRANCH_NAME == 'develop') {
-                tokenId = 'dev-databricks-token'
+                tokenId = 'databrickstoken'
                 host_url = 'https://dbc-cadbc0fd-96cb.cloud.databricks.com'
                 environment_name = 'dev'
             } 
             else if (env.BRANCH_NAME == 'qa') {
-                tokenId = 'dev-databricks-token'
+                tokenId = 'databrickstoken'
                 host_url = 'https://dbc-cadbc0fd-96cb.cloud.databricks.com'
                 environment_name = 'dev'
             } 
             else if (env.BRANCH_NAME == 'main') {
-                tokenId = 'dev-databricks-token'
+                tokenId = 'databrickstoken'
                 host_url = 'https://dbc-cadbc0fd-96cb.cloud.databricks.com'
                 environment_name = 'dev'
             } 
